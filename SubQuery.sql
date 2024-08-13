@@ -12,3 +12,22 @@ SELECT AVG(salary)
 FROM employee_salary
 ) AS Average_salary
 FROM employee_salary
+
+
+SELECT gender, AVG(age), MAX(age), MIN(age), COUNT(age) AS aggrt_age
+FROM employee_demographics
+GROUP BY gender
+
+
+
+SELECT AVG(max_age) 
+FROM
+(
+SELECT
+gender,
+AVG(age) AS avg_age, 
+MAX(age) AS max_age, 
+MIN(age) AS min_age,
+COUNT(age) AS count_age
+FROM employee_demographics
+GROUP BY gender) AS Agg_table
