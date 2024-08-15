@@ -14,7 +14,6 @@ JOIN employee_salary sal
 ON dem.employee_id = sal.employee_id
 
 --row_number() rank() dense_rank()--
-
 SELECT dem.first_name,gender,salary,
 ROW_NUMBER() OVER(PARTITION BY gender ORDER BY salary DESC) AS row_num,
 RANK() OVER(PARTITION BY gender ORDER BY salary DESC) AS rank_num,
